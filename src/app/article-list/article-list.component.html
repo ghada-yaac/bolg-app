@@ -1,0 +1,25 @@
+<input type="text" class="form-control" #search>
+<button class="btn btn-success mb-2"
+ (click)="FilteredArticles(search.value)">rechercher</button>
+<table >
+    <thead>
+      <tr >
+        <th class="col">image</th>
+        <th class="col">description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--Affichage en boucle Directive @for-->
+      @for (article of getFilteredArticles(); track $index) {<tr>
+        <th><img src="{{article.imageUrl}}"></th>
+        <td><h4>{{article.title}}</h4><br>{{article.description}}<br>date: {{article.date}} <br> score:{{article.score}} </td>
+        <td><button (click)="incrementer($index)">up</button></td>
+        <td><button (click)="decrementer($index)">down</button></td>
+      </tr>}
+    </tbody>
+</table>
+<button class="btn btn-primary mb-2"
+ (click)="changeAction('add')">ajouter article</button>
+@if (action=='add'){
+    <app-article-add (articlecreated)="addArticle($event)"></app-article-add>
+}

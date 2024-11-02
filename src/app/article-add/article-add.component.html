@@ -1,0 +1,28 @@
+    <h2>Ajout d'un nouveau article :</h2>
+<!--Solution simplifiée pour la gestion du formulaire (non recommandée!!!)-->
+<form id="addForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Titre</label>
+      <input type="text" class="form-control" id="title" #title  />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">description</label>
+      <textarea class="form-control"id="description" #description></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">date</label>
+        <input type="text" class="form-control" id="description" #date />
+      </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">imageUrl</label>
+      <input type="text" class="form-control" id="imageUrl" #imageUrl />
+    </div>
+    <button 
+        type="button" 
+        id="btnValidAdd" 
+        class="btn btn-primary mb-3" 
+        (click)="addArticle(title.value, description.value, imageUrl.value,date.value)">
+            Valider
+        </button>
+  </form>
+
